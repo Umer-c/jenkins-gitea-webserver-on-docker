@@ -7,7 +7,9 @@ This project demonstrates a basic CI/CD pipeline using Docker containers to run 
 The setup consists of three Docker containers running locally:
 
 Jenkins: Automates the build and deployment process.
+
 Gitea: A self-hosted Git service for version control.
+
 Ubuntu Server: Hosts the web application.
 
 Each service (Jenkins, Gitea, and Ubuntu) has its own Dockerfile located in its respective directory. A docker-compose.yml file orchestrates the build and deployment of all containers.
