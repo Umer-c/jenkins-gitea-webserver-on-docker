@@ -120,6 +120,23 @@ server {
 
 ```
 
+### Setup Jenkins Job
+
+Go to the plugin details and install plugin "Publish over SSH" and configure it as below:
+
+<img width="440" alt="image" src="https://github.com/user-attachments/assets/faae4ec0-2c3f-44ab-90ff-f95219be1147">
+
+Create a freestyle project and configure it as below:
+
+<img width="543" alt="image" src="https://github.com/user-attachments/assets/dcbd1a73-6c5a-47c3-8ef8-051df835a13d">
+
+<img width="409" alt="image" src="https://github.com/user-attachments/assets/6e4ab3fb-d2e3-4072-a09a-6ec883ae135d">
+
+<img width="573" alt="image" src="https://github.com/user-attachments/assets/f2740d74-8e53-4fa6-8c06-5e4364be4918">
+
+Hit save and you are done. Now go to you repo and push the updated index.html file and check the jenkins job, it should be triggered automatically and it will copy over the index.html file from the git to the ubuntu's target directory. If you go to the nginx webserver url you will see your application/webpage:
+
+<img width="408" alt="image" src="https://github.com/user-attachments/assets/019e8376-0b49-41bf-8e5b-764fed7c6af2">
 
 
 
