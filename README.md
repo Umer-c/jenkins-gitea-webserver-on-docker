@@ -62,3 +62,14 @@ networks:
     name: devops_network
 ```
 
+To build the images and containers run the command
+```
+docker-compose up -d --build
+```
+Once the containers are up, you can access the instances locally on localhost but I would suggest using the docker ip. It would be helpful to create webhook between git and jenkins.
+The servers can be accessed at
+jenkins: http://docker-ip:8080/
+ubuntu: http://docker-ip:8081/
+gites: http://docker-ip:3050/
+
+
