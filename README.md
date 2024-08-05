@@ -68,8 +68,59 @@ docker-compose up -d --build
 ```
 Once the containers are up, you can access the instances locally on localhost but I would suggest using the docker ip. It would be helpful to create webhook between git and jenkins.
 The servers can be accessed at
+
 jenkins: http://docker-ip:8080/
+
 ubuntu: http://docker-ip:8081/
+
 gites: http://docker-ip:3050/
+
+### Jenkins & Gitea Integration
+
+Setup the jenkins server and install gitea plugin, once the server is up, setup the configuration as depicted below:
+
+<img width="745" alt="image" src="https://github.com/user-attachments/assets/d20d1919-b605-4fac-80e1-8f276fa458de">
+
+Setup the git instance and create your repo, then from settings you can create a webhook, with details as below:
+
+<img width="1097" alt="image" src="https://github.com/user-attachments/assets/505b9dad-5ba0-4f1f-92ef-612d76233212">
+
+you can also test the connection, once done, we can setup ubuntu webserver. We can access the default web at http://docker-ip:8081/, it is going to be the nginx welcome page. But we want 
+or webserver on this address.
+
+```
+#sign in to the ubuntu container, credentials are in the Dockerfile
+docker exec -it container-id /bin/bash
+
+#create dir
+cd /var/www/
+mkdir my-web
+chown -R www-data:www-data /var/www/my-web
+chmod -R 755 /var/www/my-web
+
+#update nginx conf file
+vim /etc/nginx/sites-available/default
+
+#locate the server block and modify as below
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/my-web;
+
+    index index.html index.htm;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+```
+
+
+
 
 
