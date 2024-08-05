@@ -16,8 +16,11 @@ Each service (Jenkins, Gitea, and Ubuntu) has its own Dockerfile located in its 
 The goal of this project is to demonstrate a CI/CD pipeline where:
 
 Code changes are pushed to a Gitea repository, specifically an update to the index.html file.
+
 Jenkins detects these changes using a webhook and triggers a build job.
+
 The build job automatically transfers the updated index.html file to the Ubuntu server's web directory.
+
 
 Compose file is as below with network and port mapping details:
 
